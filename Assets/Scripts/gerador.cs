@@ -2,30 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gerador : MonoBehaviour
+public class Gerador : MonoBehaviour
 {
     [SerializeField]
-    private float tempoParaCriar;
+    private float tempoParaGerar=3;
 
     private float cronometro;
 
     [SerializeField]
+    private GameObject modelObstaculo; 
 
-    private GameObject ModeloObstaculo;
-
-     private void Awake()
+    void Awake()
     {
-        this.cronometro = this.tempoParaCriar;
+        this.cronometro = this.tempoParaGerar;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        this.cronometro = Time.deltaTime;
-        if (this.cronometro < 0)
+        this.cronometro -=Time.deltaTime;
+        if(this.cronometro < 0)
         {
-            GameObject.Instantiate(this.ModeloObstaculo, this.transform.position, Quaternion.identity);
-            this.cronometro = this.tempoParaCriar;
+            GameObject.Instantiate(this.modelObstaculo, this.transform.position,Quaternion.identity);
+            this.cronometro = this.tempoParaGerar;
         }
     }
 }
