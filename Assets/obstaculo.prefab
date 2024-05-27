@@ -32,7 +32,7 @@ Transform:
   - {fileID: 968110642135751498}
   - {fileID: 5679982090072452272}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5892523319695216290
 MonoBehaviour:
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 1.8
+  varairposicaoY: 2.5
 --- !u!1 &6449763045233597885
 GameObject:
   m_ObjectHideFlags: 0
