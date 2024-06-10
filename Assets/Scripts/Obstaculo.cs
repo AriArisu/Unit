@@ -9,7 +9,15 @@ public class obstaculo : MonoBehaviour
 
     [SerializeField]
     private float varairposicaoY;
+    private Vector3 posicaoPassaro;
+    private bool pontuei;
+    private UI uicontroller;
 
+     private void Start()
+    {
+      this.posicaoPassaro= GameObject.FindObjectOfType<passaro>().transform.position;
+        this.uicontroller = GameObject.FindObjectOfType<UI>();
+    }
     private void Awake()
     {
         this.transform.Translate(Vector3.up * Random.Range(-varairposicaoY,varairposicaoY));
@@ -18,6 +26,13 @@ public class obstaculo : MonoBehaviour
     void Update()
     {
         this.transform.Translate(Vector3.left*velocidade* Time.deltaTime);
+        if(this.pontuei && this.transform.position.x < this.posicaoPassaro.x)
+        {
 
+            this.uicontroller.adicionarPontos();
+            this.pontuei = true;
+
+        }
     }
 }
+ 
